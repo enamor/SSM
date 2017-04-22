@@ -1,0 +1,62 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Gradle : Test : zn.test-1.0.war (exploded)">
+    <output-path>$PROJECT_DIR$/build/libs/exploded/zn.test-1.0.war</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$">
+        <manifest>TWFuaWZlc3QtVmVyc2lvbjogMS4wDQoNCg==</manifest>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/build/libs/exploded/zn.test-1.0.war/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="zn.test/web/Web Gradle : zn.test-1.0.war" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="zn.test" />
+          <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.8.7" />
+          <element id="library" level="project" name="Gradle: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Gradle: org.hamcrest:hamcrest-core:1.3" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.8.0" />
+          <element id="library" level="project" name="Gradle: commons-pool:commons-pool:1.5.4" />
+          <element id="library" level="project" name="Gradle: com.sun.mail:javax.mail:1.5.0" />
+          <element id="library" level="project" name="Gradle: org.aspectj:aspectjweaver:1.8.9" />
+          <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
+          <element id="library" level="project" name="Gradle: junit:junit:4.12" />
+          <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.10" />
+          <element id="library" level="project" name="Gradle: commons-io:commons-io:2.4" />
+          <element id="library" level="project" name="Gradle: commons-fileupload:commons-fileupload:1.3.1" />
+          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-log4j12:1.7.21" />
+          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.21" />
+          <element id="library" level="project" name="Gradle: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Gradle: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.8.7" />
+          <element id="library" level="project" name="Gradle: commons-dbcp:commons-dbcp:1.4" />
+          <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.6" />
+          <element id="library" level="project" name="Gradle: javax:javaee-api:7.0" />
+          <element id="library" level="project" name="Gradle: org.mybatis:mybatis-spring:1.2.2" />
+          <element id="library" level="project" name="Gradle: org.mybatis:mybatis:3.2.6" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc-portlet:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-tx:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-test:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-aspects:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-context-support:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-instrument:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-instrument-tomcat:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-jdbc:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-orm:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.3.7.RELEASE" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

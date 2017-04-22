@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zn.user.dao.UserDao">
+  <resultMap id="BaseResultMap" type="org.zn.user.entity.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="CHAR" property="name" />
+    <result column="password" jdbcType="CHAR" property="password" />
+  </resultMap>
+
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select *from user
+  </select>
+</mapper>
