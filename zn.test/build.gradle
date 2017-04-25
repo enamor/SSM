@@ -6,6 +6,10 @@ apply plugin: 'war'
 
 sourceCompatibility = 1.5
 
+configurations {
+    mybatisGenerator
+}
+
 repositories {
     mavenCentral()
 }
@@ -45,8 +49,13 @@ dependencies {
     //java ee jar 包
     compile group: 'javax', name: 'javaee-api', version: '7.0'
 
-    //mysql
+    //MyBatis Generator 逆向生成代码
+    compile group: 'org.mybatis.generator', name: 'mybatis-generator-core', version: '1.3.5'
     compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
+    compile group: 'tk.mybatis', name: 'mapper', version: '3.3.9'
+
+
+    //数据库链接
     compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
 
     //阿里巴巴开源json处理
@@ -72,4 +81,54 @@ dependencies {
 
 
     compile group: 'junit', name: 'junit', version: '4.12'
+
+    //MyBatis Generator 逆向生成代码
+    mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.3.5'
+    mybatisGenerator 'mysql:mysql-connector-java:5.1.6'
+    mybatisGenerator 'tk.mybatis:mapper:3.3.9'
+}
+
+def getDbProperties = {
+    def properties = new Properties()
+    file("src/main/resources/jdbc.properties").withInputStream { inputStream ->
+        properties.load(inputStream)
+    }
+    properties;
+}
+task mybatisGenerate << {
+    def properties = getDbProperties()
+    ant.properties['targetProject'] = projectDir.path
+    ant.properties['driverClass'] = properties.getProperty("jdbc.driver")
+    ant.properties['connectionURL'] = properties.getProperty("jdbc.url")
+    ant.properties['userId'] = properties.getProperty("jdbc.username")
+    ant.properties['password'] = properties.getProperty("jdbc.password")
+    ant.properties['src_main_java'] = sourceSets.main.java.srcDirs[0].path
+    ant.properties['src_main_resources'] = sourceSets.main.resources.srcDirs[0].path
+    ant.properties['modelPackage'] = properties.getProperty("package.model")
+    ant.properties['mapperPackage'] = properties.getProperty("package.mapper")
+    ant.properties['sqlMapperPackage'] = properties.getProperty("package.xml")
+    ant.properties['tableName'] = properties.getProperty("package.tableName")
+    ant.properties['entityName'] = properties.getProperty("package.entityName")
+    ant.taskdef(
+            name: 'mbgenerator',
+            classname: 'org.mybatis.generator.ant.GeneratorAntTask',
+            classpath: configurations.mybatisGenerator.asPath
+    )
+    ant.mbgenerator(overwrite: true,
+            configfile: 'src/main/resources/generatorConfig.xml', verbose: true) {
+        propertyset {
+            propertyref(name: 'targetProject')
+            propertyref(name: 'userId')
+            propertyref(name: 'driverClass')
+            propertyref(name: 'connectionURL')
+            propertyref(name: 'password')
+            propertyref(name: 'src_main_java')
+            propertyref(name: 'src_main_resources')
+            propertyref(name: 'modelPackage')
+            propertyref(name: 'mapperPackage')
+            propertyref(name: 'sqlMapperPackage')
+            propertyref(name: 'tableName')
+            propertyref(name: 'entityName')
+        }
+    }
 }

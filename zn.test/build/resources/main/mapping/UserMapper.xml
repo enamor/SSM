@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.zn.user.dao.UserDao">
+<mapper namespace="org.zn.user.dao.UserMapper">
   <resultMap id="BaseResultMap" type="org.zn.user.entity.User">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="CHAR" property="name" />
     <result column="password" jdbcType="CHAR" property="password" />
   </resultMap>
-
-  <select id="selectAll" resultMap="BaseResultMap" >
-    select *from user
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.zn.user.entity.User">
+    insert into user (id, name, password)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=CHAR}, #{password,jdbcType=CHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="org.zn.user.entity.User">
+    update user
+    set name = #{name,jdbcType=CHAR},
+      password = #{password,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, name, password
+    from user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, password
+    from user
   </select>
 </mapper>
